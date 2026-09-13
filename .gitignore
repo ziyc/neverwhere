@@ -1,0 +1,22 @@
+# downloaded scenes and checkpoints (scripts/download_data.py), evaluation outputs
+neverwhere/tasks/real_scenes
+checkpoints/
+results/
+.cache/
+MUJOCO_LOG.txt
+
+# scene-making outputs
+neverwhere_envs/datasets*/
+
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# editors / os
+.idea/
+.vscode/
+.DS_Store
+*.swp

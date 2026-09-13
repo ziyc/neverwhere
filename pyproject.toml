@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neverwhere"
+version = "1.0.0"
+description = "Hyper-realistic visual locomotion benchmark for legged robots"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+# simulator + evaluation dependencies (CUDA extension `gsplat` is installed separately, see README)
+dependencies = [
+    "numpy>=1.21,<2",
+    "params-proto>=2.11.16,<3",
+    "pillow",
+    "tqdm",
+    "einops",
+    "transforms3d",
+    "imageio",
+    "imageio-ffmpeg",
+    "opencv-python",
+    "h5py",
+    "torchtyping",
+    "dm_control==1.0.18",
+    "mujoco==3.1.6",
+    "gym==0.21.0",
+    "gym-dmc==0.2.9",
+    "huggingface_hub",
+]
+
+[project.urls]
+Homepage = "https://ziyc.github.io/neverwhere-bench/"
+Repository = "https://github.com/ziyc/neverwhere"
+Dataset = "https://huggingface.co/datasets/ziyc/neverwhere"
+
+[project.optional-dependencies]
+# scene-making toolchain (COLMAP, OpenMVS and the gsplat/fused-ssim CUDA extensions are installed separately)
+scene-making = [
+    "open3d==0.18.0",
+    "trimesh",
+    "fast-simplification",
+    "pillow_heif",
+    "viser==0.2.11",
+    "torchmetrics[image]",
+    "tensorboard",
+    "tensorly",
+    "nerfview",
+    "splines",
+    "waterbear",
+    "vuer>=0.0.63",
+    "pycolmap @ git+https://github.com/rmbrualla/pycolmap@cc7ea4b7301720ac29287dbe450952511b32125e",
+]
+dev = ["ruff"]
+
+[tool.setuptools.packages.find]
+include = ["neverwhere*", "neverwhere_envs*"]
+
+[tool.setuptools.package-data]
+neverwhere = ["scenes.txt", "tasks/**/*.xml", "tasks/**/*.obj", "tasks/**/*.stl", "tasks/**/*.dae", "tasks/**/*.urdf", "tasks/**/*.png", "tasks/**/*.mtl", "tasks/**/*.json"]
+neverwhere_envs = ["tools/templates/*.xml", "docker/*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
