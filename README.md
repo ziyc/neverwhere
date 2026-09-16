@@ -2,7 +2,7 @@
 
 **The Neverwhere Visual Parkour Benchmark Suite** · IROS 2026
 
-[Website](https://ziyc.github.io/neverwhere-bench/) · [Paper](https://ziyc.github.io/neverwhere-bench/) · [Data](https://huggingface.co/datasets/ziyc/neverwhere)
+[Website](https://ziyc.github.io/neverwhere-bench/) · [Paper](https://arxiv.org/abs/2609.16443) · [Data](https://huggingface.co/datasets/ziyc/neverwhere)
 
 ![Neverwhere scenes: photorealistic 3DGS renders (top) and the same scenes as point clouds with robot trajectories (bottom)](media/teaser.jpg)
 
